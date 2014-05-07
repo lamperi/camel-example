@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<script>
+	var ws = new WebSocket("ws://localhost:1337/clock")
+	ws.onmessage = function(messageEvent) {
+		document.getElementById("time").innerHTML = messageEvent.data
+	}
+	ws.onclose = function() {
+		document.getElementById("time").innerHTML = "closed :( please F5"
+	}
+	</script>
+	</head>
+	<body>
+		<p>The time is now: <span id="time">???</span></p>
+	</body>
+</html>
